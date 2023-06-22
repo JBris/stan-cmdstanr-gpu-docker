@@ -54,7 +54,6 @@ RUN install2.r --error --skipmissing --skipinstalled -n -1 \
   yaml \
   reshape2 \
   testthat \ 
-  lintr \
   targets
 
 RUN strip /usr/local/lib/R/site-library/*/libs/*.so
