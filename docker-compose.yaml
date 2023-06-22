@@ -1,0 +1,35 @@
+version: "3.7"
+
+services:
+
+  stan:
+    image: "rocker/tidyverse:${TIDYVERSE_TAG}"
+    hostname: stan
+    stop_grace_period: 10s
+    restart: always
+    env_file: .env
+    environment:
+      USER: $R_STUDIO_USER
+      PASSWORD: $R_STUDIO_PASSWORD
+      ROOT: "TRUE"
+      DISABLE_AUTH: "TRUE"
+      R_SEED: $R_SEED
+    build: 
+      context: .
+      args:
+        TIDYVERSE_TAG: $TIDYVERSE_TAG
+        CMDSTAN_VERSION: $CMDSTAN_VERSION
+    ports:
+      - ${R_STUDIO_PORT}:8787 
+    mem_limit: 6g
+    mem_reservation: 2g
+    volumes:
+      - ./r_home:/home
+      - r-packages-data:${RENV_PATHS_CACHE}
+
+volumes:
+  r-packages-data:
+
+networks:
+  default:
+      name: stan-docker-gpu
