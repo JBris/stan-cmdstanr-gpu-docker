@@ -2,10 +2,11 @@ ARG TIDYVERSE_TAG
 
 FROM rocker/tidyverse:${TIDYVERSE_TAG}
 
-RUN apt-get update -y && apt-get install -y --no-install-recommends libglpk-dev clang-3.6 clinfo pocl-opencl-icd nvidia-settings nvidia-cuda-toolkit \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm -rf /tmp/downloaded_packages
+RUN apt-get update -y \ 
+  && apt-get install -y --no-install-recommends libglpk-dev clang-3.6 clinfo pocl-opencl-icd nvidia-settings nvidia-cuda-toolkit \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* \
+  && rm -rf /tmp/downloaded_packages
 
 RUN mkdir -p $HOME/.R/ \ 
   && echo "CXX=clang++ -stdlib=libc++ -fsanitize=address,undefined -fno-sanitize=float-divide-by-zero -fno-omit-frame-pointer -fsanitize-address-use-after-scope -fno-sanitize=alignment -frtti" >> $HOME/.R/Makevars \
@@ -24,7 +25,9 @@ ARG CMDSTAN_VERSION
 
 RUN cd /usr/share/ \
   && wget --progress=dot:mega https://github.com/stan-dev/cmdstan/releases/download/v${CMDSTAN_VERSION}/cmdstan-${CMDSTAN_VERSION}.tar.gz \
-  && tar -zxpf cmdstan-${CMDSTAN_VERSION}.tar.gz && mv cmdstan-${CMDSTAN_VERSION} .cmdstan \
+  && tar -zxpf cmdstan-${CMDSTAN_VERSION}.tar.gz \
+  && rm cmdstan-${CMDSTAN_VERSION}.tar.gz \
+  && mv cmdstan-${CMDSTAN_VERSION} .cmdstan \
   && ln -s .cmdstan cmdstan && cd .cmdstan && echo "CXX = clang++" >> make/local \
   && make build
 
