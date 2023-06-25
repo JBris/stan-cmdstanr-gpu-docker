@@ -27,7 +27,7 @@ The following packages are installed during the image build process:
 * [rstanarm](https://mc-stan.org/rstanarm/)
 * [cmdstan](https://mc-stan.org/users/interfaces/cmdstan)
 * [brms](https://paul-buerkner.github.io/brms/)
-* [posterior](https://mc-stan.org/loo/)
+* [posterior](https://mc-stan.org/posterior/)
 * [tidybayes](https://mjskay.github.io/tidybayes/)
 * [bayesplot](https://mc-stan.org/bayesplot/)
 * [posterior](https://mc-stan.org/posterior/)
