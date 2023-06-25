@@ -2,7 +2,7 @@ ARG TIDYVERSE_TAG
 
 FROM rocker/tidyverse:${TIDYVERSE_TAG}
 
-RUN apt-get update -y \
+RUN apt-get update -y \ 
   && apt-get install -y --no-install-recommends libglpk-dev clang-3.6 clinfo pocl-opencl-icd nvidia-settings nvidia-cuda-toolkit \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
