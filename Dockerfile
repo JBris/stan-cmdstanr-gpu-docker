@@ -33,9 +33,11 @@ RUN cd /usr/share/ \
 
 ENV DOWNLOAD_STATIC_LIBV8 1
 
-RUN install2.r --error --skipmissing --skipinstalled -n -1 rstan
+RUN install2.r --error --skipmissing --skipinstalled -n -1 rstan remotes
 
-RUN Rscript -e 'install.packages("cmdstanr", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))' 
+ARG CMDSTANR_VERSION
+
+RUN Rscript -e 'remotes::install_github( paste0("stan-dev/cmdstanr@v", Sys.getenv("CMDSTANR_VERSION")) )' 
 
 RUN install2.r --error --skipmissing --skipinstalled -n -1 \
   renv \

@@ -19,16 +19,13 @@ services:
       args:
         TIDYVERSE_TAG: $TIDYVERSE_TAG
         CMDSTAN_VERSION: $CMDSTAN_VERSION
+        CMDSTANR_VERSION: $CMDSTANR_VERSION
     ports:
       - ${R_STUDIO_PORT}:8787 
     mem_limit: 6g
     mem_reservation: 2g
     volumes:
       - ./r_home:/home
-      - r-packages-data:${RENV_PATHS_CACHE}
-
-volumes:
-  r-packages-data:
 
 networks:
   default:
