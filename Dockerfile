@@ -42,6 +42,7 @@ RUN Rscript -e 'remotes::install_github( paste0("stan-dev/cmdstanr@v", Sys.geten
 RUN install2.r --error --skipmissing --skipinstalled -n -1 \
   renv \
   here \ 
+  config \
   rstanarm \
   brms \
   loo \
