@@ -1,5 +1,7 @@
 # stan-cmdstanr-gpu-docker
 
+[![pages-build-deployment](https://github.com/JBris/stan-cmdstanr-gpu-docker/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/JBris/stan-cmdstanr-gpu-docker/actions/workflows/pages/pages-build-deployment)
+
 ## Table of Contents  
 
 - [stan-cmdstanr-gpu-docker](#stan-cmdstanr-gpu-docker)
