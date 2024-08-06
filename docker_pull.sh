@@ -6,4 +6,4 @@
 # Main
 ###################################################################
 
-docker pull ghcr.io/jbris/stan-cmdstanr-gpu-docker:${CMDSTAN_VERSION}
+docker compose pull stan
