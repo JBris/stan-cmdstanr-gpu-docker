@@ -6,4 +6,4 @@
 # Main
 ###################################################################
 
-docker push ghcr.io/jbris/stan-cmdstanr-gpu-docker:${CMDSTAN_VERSION}
+docker compose push ghcr.io/jbris/stan-cmdstanr-gpu-docker:${CMDSTAN_VERSION}
