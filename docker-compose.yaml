@@ -3,7 +3,7 @@ version: "3.7"
 services:
 
   stan:
-    image: "rocker/tidyverse:${TIDYVERSE_TAG}"
+    image: ghcr.io/jbris/stan-cmdstanr-gpu-docker:${CMDSTAN_VERSION}
     hostname: stan
     stop_grace_period: 10s
     restart: always
